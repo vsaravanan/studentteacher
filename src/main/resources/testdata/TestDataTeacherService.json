@@ -1,0 +1,26 @@
+[
+  {
+    "name" : "ChemistryTeacher",
+    "email" : "ChemistryTeacher@gmail.com"
+  },
+  {
+    "name" : "MathsTeacher",
+    "email" : "MathsTeacher@gmail.com"
+  },
+  {
+    "name" : "ScienceTeacher",
+    "email" : "ScienceTeacher@gmail.com"
+  },
+  {
+    "name" : "LanguageTeacher",
+    "email" : "LanguageTeacher@gmail.com"
+  },
+  {
+    "name" : "SportsTeacher",
+    "email" : "SportsTeacher@gmail.com"
+  },
+  {
+    "name" : "YogaTeacher",
+    "email" : "YogaTeacher@gmail.com"
+  }
+]

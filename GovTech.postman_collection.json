@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "767750ad-ef97-429b-8536-0a4135c9b666",
+		"name": "GovTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "691160"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/api/students",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"name\" : \"viswa\",\r\n    \"email\" : \"viswa@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"mohan\",\r\n    \"email\" : \"mohan@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"kumar\",\r\n    \"email\" : \"kumar@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"rajesh\",\r\n    \"email\" : \"rajesh@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"santhosh\",\r\n    \"email\" : \"santhosh@gmail.com\"\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:5000/api/students",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\" : \"viswa\",\r\n    \"email\" : \"viswa@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"mohan\",\r\n    \"email\" : \"mohan@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"kumar\",\r\n    \"email\" : \"kumar@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"rajesh\",\r\n    \"email\" : \"rajesh@gmail.com\"\r\n  },\r\n  {\r\n    \"name\" : \"santhosh\",\r\n    \"email\" : \"santhosh@gmail.com\"\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=F8FFB8FA8E01A27DC5B97D7625B69580; Path=/api; HttpOnly"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 11:52:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"CREATED\",\n    \"message\": \"Created Students records\",\n    \"records\": 5,\n    \"result\": [\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 1,\n            \"name\": \"viswa\",\n            \"email\": \"viswa@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 2,\n            \"name\": \"mohan\",\n            \"email\": \"mohan@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 3,\n            \"name\": \"kumar\",\n            \"email\": \"kumar@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 4,\n            \"name\": \"rajesh\",\n            \"email\": \"rajesh@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 5,\n            \"name\": \"santhosh\",\n            \"email\": \"santhosh@gmail.com\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:5000/api/teachers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"ChemistryTeacher\",\r\n        \"email\": \"ChemistryTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"MathsTeacher\",\r\n        \"email\": \"MathsTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"ScienceTeacher\",\r\n        \"email\": \"ScienceTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"LanguageTeacher\",\r\n        \"email\": \"LanguageTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"SportsTeacher\",\r\n        \"email\": \"SportsTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"YogaTeacher\",\r\n        \"email\": \"YogaTeacher@gmail.com\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/teachers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"teachers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:5000/api/teachers",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"name\": \"ChemistryTeacher\",\r\n        \"email\": \"ChemistryTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"MathsTeacher\",\r\n        \"email\": \"MathsTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"ScienceTeacher\",\r\n        \"email\": \"ScienceTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"LanguageTeacher\",\r\n        \"email\": \"LanguageTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"SportsTeacher\",\r\n        \"email\": \"SportsTeacher@gmail.com\"\r\n    },\r\n    {\r\n        \"name\": \"YogaTeacher\",\r\n        \"email\": \"YogaTeacher@gmail.com\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"teachers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 11:52:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"CREATED\",\n    \"message\": \"Created Teachers records\",\n    \"records\": 6,\n    \"result\": [\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 1,\n            \"name\": \"ChemistryTeacher\",\n            \"email\": \"ChemistryTeacher@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 2,\n            \"name\": \"MathsTeacher\",\n            \"email\": \"MathsTeacher@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 3,\n            \"name\": \"ScienceTeacher\",\n            \"email\": \"ScienceTeacher@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 4,\n            \"name\": \"LanguageTeacher\",\n            \"email\": \"LanguageTeacher@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 5,\n            \"name\": \"SportsTeacher\",\n            \"email\": \"SportsTeacher@gmail.com\"\n        },\n        {\n            \"createdBy\": \"viswa\",\n            \"createdTm\": \"2022-08-13 19:52\",\n            \"updatedBy\": \"viswa\",\n            \"updatedTm\": \"2022-08-13 19:52\",\n            \"id\": 6,\n            \"name\": \"YogaTeacher\",\n            \"email\": \"YogaTeacher@gmail.com\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:5000/api/students/register 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"teacherEmail\" :  \"MathsTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"mohan@gmail.com\", \"rajesh@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/students/register 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"teacherEmail\" :  \"ScienceTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"mohan@gmail.com\", \"kumar@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/commonstudents 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  \"ScienceTeacher@gmail.com\"\r\n]\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commonstudents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commonstudents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:5000/api/commonstudents 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"ScienceTeacher@gmail.com\"\r\n]\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/commonstudents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"commonstudents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 11:49:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"message\": \"Found common student(s) ListStudent(students=[mohan@gmail.com, kumar@gmail.com]) for teacher(s) [ScienceTeacher@gmail.com] \",\n    \"records\": 2,\n    \"result\": {\n        \"students\": [\n            \"mohan@gmail.com\",\n            \"kumar@gmail.com\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:5000/api/commonstudents 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  \"ScienceTeacher@gmail.com\", \"MathsTeacher@gmail.com\"\r\n]\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commonstudents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commonstudents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:5000/api/commonstudents 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"ScienceTeacher@gmail.com\", \"MathsTeacher@gmail.com\"\r\n]\r\n\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/commonstudents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"commonstudents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 11:49:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"message\": \"Found common student(s) ListStudent(students=[mohan@gmail.com]) for teacher(s) [ScienceTeacher@gmail.com, MathsTeacher@gmail.com] \",\n    \"records\": 1,\n    \"result\": {\n        \"students\": [\n            \"mohan@gmail.com\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:5000/api/commonstudents2 (this is using @RequestParam and not using json format)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commonstudents2?teacher=ScienceTeacher@gmail.com&teacher=MathsTeacher@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commonstudents2"
+					],
+					"query": [
+						{
+							"key": "teacher",
+							"value": "ScienceTeacher@gmail.com"
+						},
+						{
+							"key": "teacher",
+							"value": "MathsTeacher@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:5000/api/commonstudents2 (this is using @RequestParam and not using json format)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/commonstudents2?teacher=ScienceTeacher@gmail.com&teacher=MathsTeacher@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"commonstudents2"
+							],
+							"query": [
+								{
+									"key": "teacher",
+									"value": "ScienceTeacher@gmail.com"
+								},
+								{
+									"key": "teacher",
+									"value": "MathsTeacher@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 11:50:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"OK\",\n    \"message\": \"Found common student(s) ListStudent(students=[mohan@gmail.com]) for teacher(s) [ScienceTeacher@gmail.com, MathsTeacher@gmail.com] \",\n    \"records\": 1,\n    \"result\": {\n        \"students\": [\n            \"mohan@gmail.com\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/students/register student not found exception",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"teacherEmail\" :  \"MathsTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"UnknownStudent@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/api/students/register student not found exception",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"teacherEmail\" :  \"MathsTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"UnknownStudent@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/students/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								"register"
+							]
+						}
+					},
+					"status": "Expectation Failed",
+					"code": 417,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 14:39:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"warning\": \"\",\n    \"error\": \"Student UnknownStudent@gmail.com does not exists\",\n    \"stacktrace\": \"\",\n    \"path\": \"StudentTeacherService - linkStudentTeacher - 65\",\n    \"timestamp\": \"2022-08-13 22:39\",\n    \"input\": \"StudentTeacherBo(teacherEmail=MathsTeacher@gmail.com, listStudents=[UnknownStudent@gmail.com])\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/students/register teacher not found exception",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"teacherEmail\" :  \"UnknownTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"mohan@gmail.com\", \"rajesh@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/students/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"students",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "/api/students/register teacher not found exception",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"teacherEmail\" :  \"UnknownTeacher@gmail.com\",\r\n  \"listStudents\" : [ \"mohan@gmail.com\", \"rajesh@gmail.com\" ]\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/students/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"students",
+								"register"
+							]
+						}
+					},
+					"status": "Expectation Failed",
+					"code": 417,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 14:31:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"warning\": \"\",\n    \"error\": \"Teacher UnknownTeacher@gmail.com does not exists\",\n    \"stacktrace\": \"\",\n    \"path\": \"StudentTeacherService - linkStudentTeacher - 57\",\n    \"timestamp\": \"2022-08-13 22:31\",\n    \"input\": \"StudentTeacherBo(teacherEmail=UnknownTeacher@gmail.com, listStudents=[mohan@gmail.com, rajesh@gmail.com])\"\n}"
+				}
+			]
+		},
+		{
+			"name": "commonstudents.  No student found for a specific teacher. Testing exception",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  \"NoTeacher@gmail.com\"\r\n]\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/commonstudents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"commonstudents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "commonstudents.  No student found for a specific teacher. Testing exception",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"NoTeacher@gmail.com\"\r\n]\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/commonstudents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"commonstudents"
+							]
+						}
+					},
+					"status": "Expectation Failed",
+					"code": 417,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 13 Aug 2022 13:06:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"warning\": \"\",\n    \"error\": \"No students found for the teacher(s) \",\n    \"description\": \"\",\n    \"path\": \"StudentTeacherService - findCommonStudents - 102\",\n    \"timestamp\": \"2022-08-13 21:06\",\n    \"input\": \"[NoTeacher@gmail.com]\"\n}"
+				}
+			]
+		}
+	]
+}

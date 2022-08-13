@@ -1,0 +1,76 @@
+
+server.servlet.context-path: /api
+spring.output.ansi.enabled: always
+
+spring:
+  application:
+    name: myschool
+  profiles:
+    active: test
+
+
+spring.jpa.properties.org.hibernate.envers:
+  audit_table_suffix: Audit
+  revision_field_name: seq
+  revision_type_field_name: iud
+
+server.error.whitelabel.enabled: false
+server.error.include-stacktrace: always
+server.error.include-message: always
+
+spring.jpa.open-in-view: false  # OSIV (Open session in view ) is enabled by default. disable this to handle LazyInitializationException
+spring.jpa.properties.hibernate.enable_lazy_load_no_trans: true # turned on, we no longer get a LazyInitializationException.
+  # we don't have to worry about transactions and their boundaries. Hibernate manages that for us.
+spring.mvc.pathmatch.matching-strategy: ant-path-matcher
+# yyyy-MM-dd
+# yyyy-MM-dd HH:mm:ss
+# HH:mm:ss
+
+spring.mvc.format.date: iso
+spring.mvc.format.date-time: iso
+spring.mvc.format.time: iso
+spring.jackson.date-format: yyyy-MM-dd HH:mm:ss
+
+cors:
+  config:
+    enabled: true
+    # Specify allowed headers, like 'x-allowed-header'.
+    allowedHeaders: ['*']
+    # Specify allowed request methods, specify ['*'] to allow all possible ones.
+    allowedMethods: ['*']
+    # Configure requests allowed from specific origins.
+    allowedOrigins: ['*']
+    # Sets the Access-Control-Expose-Headers header.
+    exposedHeaders: true
+    # Sets the Access-Control-Max-Age header.
+    maxAge: 1728000
+    # Sets the Access-Control-Allow-Credentials header.
+    supportsCredentials: true
+
+
+dirLog: /data/logs/govtech
+
+spring.main.banner-mode: off
+logging:
+  path: ${dirLog}
+  file.name: ${dirLog}/govtech.log
+  #  file.clean-history-on-start: true
+  pattern.rolling-file-name: ${dirLog}/%d{yyyyMMdd}/govtech.%d{yyyyMMdd}.%i.log.gz
+  pattern.console: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36}.%M - %msg%n"
+  pattern.file: "%d{yyyy-MM-dd HH:mm:ss} | [%thread] | %-5level | %logger{36}.%M - %msg%n"
+  file.max-size: 100MB
+  #  file.total-size-cap: 2MB
+  file.max-history: 15
+  level:
+    web: TRACE
+    com.govtech: debug
+    org.hibernate.SQL: debug
+    org.springframework.web: TRACE
+    # org.springframework: trace
+    #org.hibernate.type: trace
+    root: info
+
+
+
+
+

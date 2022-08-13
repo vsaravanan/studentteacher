@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+                                     http://xmlns.jcp.org/xml/ns/persistence/orm_2_0.xsd" version="2.1">
+
+    <named-native-query name="Select.CommonStudentsForTeachers" >
+        <query>
+            select s.email
+            from
+            (
+                select distinct s.id, s.email
+                from Student s
+                inner join StudentTeacher t
+                   on s.id = t.studentId
+                inner join Teacher h
+                   on t.teacherId = h.id
+                  and h.email in (:listTeacher)
+            ) s
+            inner join StudentTeacher t
+               on s.id = t.studentId
+            inner join Teacher h
+               on t.teacherId = h.id
+              and h.email in (:listTeacher)
+            group by s.id
+            having count(*) = :counts
+            ;
+        </query>
+    </named-native-query>
+
+</entity-mappings>

@@ -48,7 +48,7 @@ cors:
     supportsCredentials: true
 
 
-dirLog: /data/logs/govtech
+dirLog: /Users/c868253/data/logs/govtech
 
 spring.main.banner-mode: off
 logging:

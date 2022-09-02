@@ -22,7 +22,7 @@
             inner join Teacher h
                on t.teacherId = h.id
               and h.email in (:listTeacher)
-            group by s.id
+            group by s.id, s.email
             having count(*) = :counts
             ;
         </query>

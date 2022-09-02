@@ -1,4 +1,4 @@
-set foreign_key_checks = 0;
+--set foreign_key_checks = 0;
 
 drop table if exists studentteacheraudit cascade ;
 drop table if exists studentteacher cascade ;

@@ -7,10 +7,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.relational.core.mapping.Table;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 /**
  * @author Sarav on 10 Aug 2022
  * @project govtech
@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
  */
 
 @Entity
+@Table("globallog")
 @Data
 @NoArgsConstructor
 @EntityListeners( AuditingEntityListener.class )

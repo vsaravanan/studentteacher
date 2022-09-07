@@ -66,6 +66,7 @@ logging:
     com.govtech: debug
     org.hibernate.SQL: debug
     org.springframework.web: TRACE
+    org.springframework.data.r2dbc: debug
     # org.springframework: trace
     #org.hibernate.type: trace
     root: info

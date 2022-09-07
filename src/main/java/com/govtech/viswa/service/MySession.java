@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 public class MySession {
 
-    String userId = "viswa"; // default value for simple sample application
+    String userId = "sss"; // default value for simple sample application
     String input = "";
     // in real application it will be updated properly
 

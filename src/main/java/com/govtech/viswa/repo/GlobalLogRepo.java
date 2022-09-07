@@ -1,8 +1,7 @@
 package com.govtech.viswa.repo;
 
 import com.govtech.viswa.entity.GlobalLog;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 
 /**
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @class GlobalLogRepo
  */
 
-@Repository
-public interface GlobalLogRepo extends JpaRepository <GlobalLog, Long > {
+//@Repository
+public interface GlobalLogRepo extends ReactiveCrudRepository<GlobalLog, Long > {
 
 }

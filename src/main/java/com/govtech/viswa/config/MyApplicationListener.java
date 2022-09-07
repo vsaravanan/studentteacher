@@ -43,8 +43,8 @@ public class MyApplicationListener
         // By default, I am preparing the database with test data for your easy testing (since it is sample app)
         // Comment the following lines when you to start with blank database
 
-        studentService.createStudentsData();
         teacherService.createTeachersData();
+        studentService.createStudentsData();
         studentTeacherService.createStudentTeacherData("testdata/TestDataLinkScienceTeacher.json");
         studentTeacherService.createStudentTeacherData("testdata/TestDataLinkMathsTeacher.json");
         studentTeacherService.runFindCommonStudents("testdata/TestDataFindStudentsForScienceTeacher.json");

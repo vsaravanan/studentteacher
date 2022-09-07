@@ -27,7 +27,7 @@ public class GlobalLogService {
     @Transactional
     public void save( GlobalLog globalLog ) {
         log.error( globalLog );
-        globalLogRepo.saveAndFlush( globalLog );
+        globalLogRepo.save( globalLog ).block();
     }
 
 }

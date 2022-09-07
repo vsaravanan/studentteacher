@@ -9,8 +9,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-
 /**
  * @author Sarav on 10 Aug 2022
  * @project govtech
@@ -25,9 +23,9 @@ public class StudentService {
     @Autowired
     StudentRepo studentRepo;
 
-    @Transactional
+//    @Transactional
     public Student saveStudent(Student student) {
-        Student student2 = studentRepo.saveAndFlush(student);
+        Student student2 = studentRepo.save(student).block();
         return student2;
     }
 
@@ -35,7 +33,7 @@ public class StudentService {
 
         Students students2 = new Students();
         for (Student student : students) {
-            Student studentUpd = studentRepo.findByEmail(student.getEmail());
+            Student studentUpd = studentRepo.findByEmail(student.getEmail()).block();
             if (studentUpd != null) {
                 studentUpd.setName(student.getName());
             } else {

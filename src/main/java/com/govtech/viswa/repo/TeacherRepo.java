@@ -1,8 +1,8 @@
 package com.govtech.viswa.repo;
 
 import com.govtech.viswa.entity.Teacher;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
+import reactor.core.publisher.Mono;
 
 /**
  * @author Sarav on 10 Aug 2022
@@ -11,8 +11,9 @@ import org.springframework.stereotype.Repository;
  * @class TeacherRepo
  */
 
-@Repository
-public interface TeacherRepo extends JpaRepository<Teacher, String> {
+//@Repository
+public interface TeacherRepo extends R2dbcRepository<Teacher, Long> {
 
-    Teacher findByEmail(String email);
+//    @Query(nativeQuery = true, value = "SELECT * FROM Teacher WHERE email = :email")
+    Mono<Teacher> findByEmail(String email);
 }

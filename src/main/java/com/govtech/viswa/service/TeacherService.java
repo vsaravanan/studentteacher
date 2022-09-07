@@ -5,11 +5,9 @@ import com.govtech.viswa.pojo.TeacherBos;
 import com.govtech.viswa.pojo.Teachers;
 import com.govtech.viswa.repo.TeacherRepo;
 import com.govtech.viswa.util.Common;
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 
 /**
  * @author Sarav on 10 Aug 2022
@@ -19,23 +17,24 @@ import javax.transaction.Transactional;
  */
 
 @Service
-@AllArgsConstructor
 @Log4j2
 public class TeacherService {
 
+    @Autowired
     TeacherRepo teacherRepo;
 
-    @Transactional
+//    @Transactional
     public Teacher saveTeacher(Teacher teacher) {
-        Teacher teacher2 = teacherRepo.saveAndFlush(teacher);
+        Teacher teacher2 = teacherRepo.save(teacher).block();
         return teacher2;
     }
 
-    public Teachers saveTeacher(Teachers teachers) {
+   public Teachers saveTeacher(Teachers teachers) {
+
 
         Teachers teachers2 = new Teachers();
         for (Teacher teacher : teachers) {
-            Teacher teacherUpd = teacherRepo.findByEmail(teacher.getEmail());
+            Teacher teacherUpd = teacherRepo.findByEmail(teacher.getEmail()).block();
             if (teacherUpd != null) {
                 teacherUpd.setName(teacher.getName());
             } else {
@@ -59,6 +58,7 @@ public class TeacherService {
         Teachers teachers = teacherBos.getTeachers(jsonString);
         teachers = saveTeacher(teachers);
         log.info("Created Teachers test data" + teachers);
+        log.info("test");
 
     }
 }

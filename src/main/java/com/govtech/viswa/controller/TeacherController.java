@@ -4,7 +4,6 @@ import com.govtech.viswa.entity.ApiResponse;
 import com.govtech.viswa.entity.Teacher;
 import com.govtech.viswa.exception.GlobalException;
 import com.govtech.viswa.pojo.Teachers;
-import com.govtech.viswa.repo.TeacherRepo;
 import com.govtech.viswa.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,8 +27,8 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
 
-    @Autowired
-    TeacherRepo teacherRepo;
+//    @Autowired
+//    TeacherRepo teacherRepo;
 
     @ApiOperation(value = "Save Teachers", response = ApiResponse.class )
     @RequestMapping(
@@ -42,7 +41,7 @@ public class TeacherController {
 
         for (Teacher teacher : teachers) {
             if (teacher.getEmail().isBlank()) {
-                throw new GlobalException ("Email cannot be blank", null, null, teacher.toString(), "" );
+                throw new GlobalException("Email cannot be blank", null, null, teacher.toString(), "" );
             }
         }
 

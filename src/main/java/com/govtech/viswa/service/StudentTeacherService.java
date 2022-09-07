@@ -1,7 +1,6 @@
 package com.govtech.viswa.service;
 
 import com.google.gson.reflect.TypeToken;
-import com.govtech.viswa.entity.IdStudentTeacher;
 import com.govtech.viswa.entity.Student;
 import com.govtech.viswa.entity.StudentTeacher;
 import com.govtech.viswa.entity.Teacher;
@@ -15,13 +14,15 @@ import com.govtech.viswa.repo.TeacherRepo;
 import com.govtech.viswa.util.Common;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import javax.transaction.Transactional;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 /**
  * @author Sarav on 12 Aug 2022
@@ -32,7 +33,7 @@ import java.util.Optional;
 
 @Service
 @Log4j2
-@Transactional
+//@Transactional
 public class StudentTeacherService
 {
 
@@ -45,6 +46,75 @@ public class StudentTeacherService
     @Autowired
     TeacherRepo teacherRepo;
 
+//    @Autowired
+//    DatabaseClient databaseClient;
+
+    @Autowired
+    R2dbcEntityTemplate r2dbc;
+
+    Flux< String> findAllByTeacherIn(List<String> listTeacher, Integer counts  ) {
+        String query = """
+             select s.email
+             from
+             (
+                 select distinct s.id, s.email
+                 from Student s
+                 inner join StudentTeacher t
+                    on s.id = t.studentId
+                 inner join Teacher h
+                    on t.teacherId = h.id
+                   and h.email in (:listTeacher)
+             ) s
+             inner join StudentTeacher t
+                on s.id = t.studentId
+             inner join Teacher h
+                on t.teacherId = h.id
+               and h.email in (:listTeacher)
+             group by s.id, s.email
+             having count(*) = :counts
+             """;
+
+        Flux<String> emails =
+                r2dbc.getDatabaseClient()
+                        .sql(query)
+                        .bind("listTeacher", listTeacher)
+                        .bind("counts", counts)
+                        .fetch()
+                        .all()
+                        .map(r -> r.get("email").toString())
+                ;
+        return emails;
+
+    }
+
+    Mono<StudentTeacher> findStudentTeacher(Long studentId, Long teacherId ) {
+        String query = """ 
+            select * from studentTeacher
+            where studentId = :studentId 
+            and teacherId = :teacherId 
+            """;
+
+        Mono<Map<String, Object>> monomap =
+                r2dbc.getDatabaseClient()
+                        .sql(query)
+                .bind("studentId", studentId)
+                .bind("teacherId", teacherId)
+                .fetch()
+                .first()
+                ;
+
+
+//        Mono<StudentTeacher> studentTeacher =
+//        ObjectMapper mapper = new ObjectMapper();
+//        User user = mapper.convertValue(info, User.class);
+        Mono<StudentTeacher> studentTeacher = monomap.map(
+                r -> new StudentTeacher(Long.valueOf(r.get("studentId").toString()),
+                       Long.valueOf(r.get("teacherId").toString()))
+        );
+
+        return studentTeacher;
+    }
+
     public void linkStudentTeacher(StudentTeacherBo studentTeacherBo)  {
 
         if (studentTeacherBo.getListStudents().size() == 0) {
@@ -52,7 +122,7 @@ public class StudentTeacherService
         }
 
         String teacherEmail = studentTeacherBo.getTeacherEmail();
-        Teacher teacher = teacherRepo.findByEmail(teacherEmail);
+        Teacher teacher = teacherRepo.findByEmail(teacherEmail).block();
         if (teacher == null) {
             throw new GlobalException("Teacher " + teacherEmail  + " does not exists", null, null, studentTeacherBo, "" );
         }
@@ -60,7 +130,7 @@ public class StudentTeacherService
         Students students = new Students();
 
         for (String studentEmail : studentTeacherBo.getListStudents()) {
-            Student student = studentRepo.findByEmail(studentEmail);
+            Student student = studentRepo.findByEmail(studentEmail).block();
             if (student == null) {
                 throw new GlobalException("Student " + studentEmail  + " does not exists", null, null, studentTeacherBo, "" );
             }
@@ -69,11 +139,11 @@ public class StudentTeacherService
         }
 
         for (Student student : students) {
-            IdStudentTeacher idStudentTeacher = new IdStudentTeacher(student, teacher);
-            Optional<StudentTeacher> optStudentTeacher = studentTeacherRepo.findById (idStudentTeacher);
-            if (! optStudentTeacher.isPresent()) {
-                StudentTeacher studentTeacher = new StudentTeacher (idStudentTeacher);
-                studentTeacherRepo.save(studentTeacher);
+            StudentTeacher idStudentTeacher = new StudentTeacher(student, teacher);
+            StudentTeacher studentTeacherExists = findStudentTeacher( idStudentTeacher.getStudentId(), idStudentTeacher.getTeacherId() ).block();
+            if (studentTeacherExists == null) {
+                StudentTeacher studentTeacher = idStudentTeacher;
+                studentTeacherRepo.save(studentTeacher).block();
                 log.info(" Linked Student and Teacher " + student + " " + teacher);
             }
             else {
@@ -96,7 +166,7 @@ public class StudentTeacherService
     }
 
     public ListStudent findCommonStudents(List<String> listTeacher)  {
-        List<String> listStudent = studentTeacherRepo.findAllByTeacher(listTeacher, listTeacher.size());
+        List<String> listStudent = findAllByTeacherIn(listTeacher, listTeacher.size()).collectList().block();
         if (listStudent.size() == 0) {
             // however, first I should check valid teacher
             throw new GlobalException("No students found for the teacher(s) ", null, null, listTeacher, "" );

@@ -28,7 +28,6 @@ public class StudentTeacherController {
 
     @Autowired
     StudentTeacherService studentTeacherService;
-
     @ApiOperation(value = "Link Students with Teacher", response = ApiResponse.class )
     @RequestMapping(
             value = "students/register",
@@ -69,7 +68,7 @@ public class StudentTeacherController {
             value = "commonstudents2",
             method = RequestMethod.GET
     )
-    public ApiResponse<ListStudent> commonStudents2(@RequestParam (name="teacher") List<String> listTeacher) {
+    public ApiResponse<ListStudent> commonStudents2(@RequestParam(name="teacher") List<String> listTeacher) {
 
         return myCommonStudents(listTeacher);
 

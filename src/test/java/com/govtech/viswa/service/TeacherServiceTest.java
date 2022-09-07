@@ -2,7 +2,6 @@ package com.govtech.viswa.service;
 
 import com.govtech.viswa.pojo.TeacherBos;
 import com.govtech.viswa.pojo.Teachers;
-import com.govtech.viswa.repo.TeacherRepo;
 import com.govtech.viswa.util.Common;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
@@ -32,8 +31,8 @@ class TeacherServiceTest {
     @Autowired
     TeacherService teacherService;
 
-    @Autowired
-    TeacherRepo teacherRepo;
+//    @Autowired
+//    TeacherRepo teacherRepo;
 
     @Test
     void saveTeacher()   {

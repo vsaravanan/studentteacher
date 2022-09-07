@@ -2,6 +2,7 @@ package com.govtech.viswa.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.relational.core.mapping.Column;
 
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -17,12 +18,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class IdStudentTeacher implements Serializable {
 
+
+    @Column("studentid")
     @Id
     Long studentId;
 
+    @Column("teacherid")
     @Id
     Long teacherId;
-
 
     public IdStudentTeacher(Long studentId, Long teacherId) {
         this.studentId = studentId;

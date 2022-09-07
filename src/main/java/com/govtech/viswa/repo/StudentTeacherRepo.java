@@ -2,11 +2,7 @@ package com.govtech.viswa.repo;
 
 import com.govtech.viswa.entity.IdStudentTeacher;
 import com.govtech.viswa.entity.StudentTeacher;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-
-import java.util.List;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 /**
  * @author Sarav on 10 Aug 2022
@@ -15,10 +11,10 @@ import java.util.List;
  * @class StudentTeacherRepo
  */
 
-@Repository
-public interface StudentTeacherRepo extends JpaRepository<StudentTeacher, IdStudentTeacher> {
+//@Repository
+public interface StudentTeacherRepo extends ReactiveCrudRepository<StudentTeacher, IdStudentTeacher> {
 
-    @Query( nativeQuery = true, name = "Select.CommonStudentsForTeachers")
-    List< String> findAllByTeacher (List<String> listTeacher, Integer counts );
+//    @Query(nativeQuery = true, value = "select * from studentTeacher where studentId = :studentId and teacherId = :teacherId")
+//    Mono<StudentTeacher> findById(Long studentId, Long teacherId );
 
 }

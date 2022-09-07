@@ -1,8 +1,17 @@
 package com.govtech.viswa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+import javax.sql.DataSource;
+
+//import javax.sql.DataSource;
 
 
 /**
@@ -17,7 +26,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableAutoConfiguration(exclude = {WebMvcAutoConfiguration.class })
 //@EnableAutoConfiguration
 //@EnableR2dbcRepositories("com.govtech.viswa.repo")
-//@EnableJpaRepositories(basePackages = "com.govtech.viswa.jparepo")  //, entityManagerFactoryRef="emf"
 //@EnableWebFlux
 public class ViswaApplication  implements CommandLineRunner {
 
@@ -30,7 +38,6 @@ public class ViswaApplication  implements CommandLineRunner {
 
 	}
 
-/*
 	@Autowired
 	DataSource dataSource;
 
@@ -47,5 +54,4 @@ public class ViswaApplication  implements CommandLineRunner {
 		factory.setDataSource(dataSource);
 		return factory;
 	}
-*/
 }

@@ -3,7 +3,7 @@ package com.govtech.viswa.service;
 import com.govtech.viswa.entity.Teacher;
 import com.govtech.viswa.pojo.TeacherBos;
 import com.govtech.viswa.pojo.Teachers;
-import com.govtech.viswa.repo.TeacherRepo;
+import com.govtech.viswa.jparepo.TeacherRepo;
 import com.govtech.viswa.util.Common;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class TeacherService {
 
 //    @Transactional
     public Teacher saveTeacher(Teacher teacher) {
-        Teacher teacher2 = teacherRepo.save(teacher).block();
+        Teacher teacher2 = teacherRepo.save(teacher);
         return teacher2;
     }
 
@@ -34,7 +34,7 @@ public class TeacherService {
 
         Teachers teachers2 = new Teachers();
         for (Teacher teacher : teachers) {
-            Teacher teacherUpd = teacherRepo.findByEmail(teacher.getEmail()).block();
+            Teacher teacherUpd = teacherRepo.findByEmail(teacher.getEmail());
             if (teacherUpd != null) {
                 teacherUpd.setName(teacher.getName());
             } else {

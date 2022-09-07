@@ -10,7 +10,7 @@ import com.govtech.viswa.pojo.StudentTeacherBo;
 import com.govtech.viswa.pojo.Students;
 import com.govtech.viswa.repo.StudentRepo;
 import com.govtech.viswa.repo.StudentTeacherRepo;
-import com.govtech.viswa.repo.TeacherRepo;
+import com.govtech.viswa.jparepo.TeacherRepo;
 import com.govtech.viswa.util.Common;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,7 +122,7 @@ public class StudentTeacherService
         }
 
         String teacherEmail = studentTeacherBo.getTeacherEmail();
-        Teacher teacher = teacherRepo.findByEmail(teacherEmail).block();
+        Teacher teacher = teacherRepo.findByEmail(teacherEmail);
         if (teacher == null) {
             throw new GlobalException("Teacher " + teacherEmail  + " does not exists", null, null, studentTeacherBo, "" );
         }

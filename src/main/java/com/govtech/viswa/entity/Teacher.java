@@ -6,9 +6,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 /**
  * @author Sarav on 10 Aug 2022
  * @project govtech
@@ -16,14 +18,14 @@ import javax.persistence.*;
  * @class Teacher
  */
 @Entity
-@Table("Teacher")
+//@Table("Teacher")
 @Data
 @NoArgsConstructor
 @Log4j2
 @EqualsAndHashCode(of = {"email"}, callSuper = false)
 //@Audited
 //@AuditOverride( forClass = Auditable.class )
-public class Teacher extends InsertableEntity { //{  //extends Auditable<String> {
+public class Teacher { //{  //extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

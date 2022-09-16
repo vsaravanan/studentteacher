@@ -9,6 +9,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
 
 /**
  * @author Sarav on 10 Aug 2022
@@ -23,6 +24,14 @@ public class StudentService {
 
     @Autowired
     StudentRepo studentRepo;
+
+    public Mono<Student> getStudent() {
+        Mono<Student> student = studentRepo.findByEmail("viswa@gmail.com");
+        return student;
+
+//        StudentBo studentDTO = new StudentBo("saravan", "saravan@gmail.com");
+//        return Mono.just(StudentBo);
+    }
 
     @Transactional
     public Student saveStudent(Student student) {

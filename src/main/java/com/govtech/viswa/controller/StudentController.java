@@ -34,6 +34,11 @@ public class StudentController {
         return Mono.just("saravanan");
     }
 
+    @GetMapping("/onestudent")
+    public Mono<Student> getOneStudent(){
+        return studentService.getStudent();
+    }
+
     @ApiOperation(value = "Save Students", response = ApiResponse.class )
     @RequestMapping(
             value = "students",

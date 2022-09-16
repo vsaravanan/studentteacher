@@ -8,6 +8,7 @@ import com.govtech.viswa.util.Common;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Sarav on 10 Aug 2022
@@ -23,7 +24,7 @@ public class TeacherService {
     @Autowired
     TeacherRepo teacherRepo;
 
-//    @Transactional
+    @Transactional
     public Teacher saveTeacher(Teacher teacher) {
         Teacher teacher2 = teacherRepo.save(teacher).block();
         return teacher2;

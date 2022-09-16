@@ -1,6 +1,7 @@
 package com.govtech.viswa.service;
 
 import com.govtech.viswa.entity.Student;
+import com.govtech.viswa.pojo.StudentBo;
 import com.govtech.viswa.pojo.StudentBos;
 import com.govtech.viswa.pojo.Students;
 import com.govtech.viswa.repo.StudentRepo;
@@ -25,12 +26,9 @@ public class StudentService {
     @Autowired
     StudentRepo studentRepo;
 
-    public Mono<Student> getStudent() {
-        Mono<Student> student = studentRepo.findByEmail("viswa@gmail.com");
-        return student;
-
-//        StudentBo studentDTO = new StudentBo("saravan", "saravan@gmail.com");
-//        return Mono.just(StudentBo);
+    public Mono<StudentBo> getStudent() {
+        StudentBo studentDTO = new StudentBo("saravan", "saravan@gmail.com");
+        return Mono.just(studentDTO);
     }
 
     @Transactional

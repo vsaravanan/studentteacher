@@ -3,6 +3,7 @@ package com.govtech.viswa.controller;
 import com.govtech.viswa.entity.ApiResponse;
 import com.govtech.viswa.entity.Student;
 import com.govtech.viswa.exception.GlobalException;
+import com.govtech.viswa.pojo.StudentBo;
 import com.govtech.viswa.pojo.Students;
 import com.govtech.viswa.service.StudentService;
 import io.swagger.annotations.Api;
@@ -35,7 +36,7 @@ public class StudentController {
     }
 
     @GetMapping("/onestudent")
-    public Mono<Student> getOneStudent(){
+    public Mono<StudentBo> getOneStudent(){
         return studentService.getStudent();
     }
 
